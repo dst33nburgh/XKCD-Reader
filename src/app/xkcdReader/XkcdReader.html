@@ -1,0 +1,11 @@
+<div class="center-content">
+    <div class="centered">
+        <div id="comic-controls" class="centered">
+            <button ng-click="xrc.prevComic()">Prev</button>
+            <input type="number" autofocus ng-attr-min="{{xrc.MIN_COMIC_NUM}}" ng-attr-max="{{xrc.latestComicNum}}" ng-model="xrc.comicNum">
+            <button ng-click="xrc.nextComic()">Next</button>
+            <button ng-click="xrc.gotoLatestComic()">Current</button>
+        </div>
+        <xkcd comic-number="xrc.comicNum" ng-click="xrc.nextComic()" ng-keydown="xrc.handleComicKeypress($event)"></xkcd>
+    </div>
+</div>

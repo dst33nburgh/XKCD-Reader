@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <title></title>
+</head>
+<body>
+    <h1 ng-hide="true">Loading...</h1>
+    <div id="content" ng-cloak><xkcd-reader></xkcd-reader></div>
+
+
+    <script src="vendors/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/xkcdReader/xkcdComicService.js"></script>
+    <script src="app/xkcdReader/xkcd.js"></script>
+    <script src="app/xkcdReader/xkcdReaderController.js"></script>
+    <script src="app/xkcdReader/xkcdReader.js"></script>
+</body>
+</html>

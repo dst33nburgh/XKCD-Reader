@@ -1,0 +1,42 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+* {
+    box-sizing: border-box;
+}
+
+xkcd-reader {
+    margin: auto;
+    padding: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+img#loading {
+    width: 200px;
+}
+
+input {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+/*div {*/
+    /*border: 1px solid red;*/
+/*}*/
+
+.center-content {
+    text-align: center;
+}
+
+.centered {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
