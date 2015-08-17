@@ -1,7 +1,7 @@
 (function() {
-    angular.module("app").directive("xkcd", ["$rootScope", "xkcdComicService", xkcd]);
+    angular.module("app").directive("xkcdComic", ["$rootScope", "xkcdComicService", xkcdComic]);
 
-    function xkcd($rootScope, xkcdComicService) {
+    function xkcdComic($rootScope, xkcdComicService) {
         return {
             restrict: "E",
             replace: false,

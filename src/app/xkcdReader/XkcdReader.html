@@ -6,6 +6,6 @@
             <button ng-click="xrc.nextComic()">Next</button>
             <button ng-click="xrc.gotoLatestComic()">Current</button>
         </div>
-        <xkcd comic-number="xrc.comicNum" ng-click="xrc.nextComic()" ng-keydown="xrc.handleComicKeypress($event)"></xkcd>
+        <xkcd-comic comic-number="xrc.comicNum" ng-click="xrc.nextComic()" ng-keydown="xrc.handleComicKeypress($event)"></xkcd-comic>
     </div>
 </div>
