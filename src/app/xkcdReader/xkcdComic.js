@@ -8,8 +8,8 @@
             scope: {
                 comicNumber: "="
             },
-            template:   "<img ng-show='false' ng-src='{{imgHref}}' >" +
-                        "<div class='loader'></div>",
+            template:   "<img ng-show='!loading' class='centered-block' ng-src='{{imgHref}}' >" +
+                        "<div ng-show='loading' class='loader'></div>",
             link: function (scope) {
                 $rootScope.$watch(function() { return scope.comicNumber; }, function(newVal) {
                     if (!!newVal) {

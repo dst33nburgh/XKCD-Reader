@@ -1,40 +1,42 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+/*Angular directives*/
+xkcd-comic {
+    display: block;
+}
+
+/***********General rules**********/
 * {
     box-sizing: border-box;
 }
 
-xkcd-reader {
-    margin: auto;
-    padding: auto;
+body {
+    background-color: #d3d3d3;
+    margin: 0;
+    padding: 0;
 }
 
+.centered-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/*All images are responsive*/
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-img#loading {
-    width: 200px;
-}
-
-input {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-}
-
-.center-content {
-    text-align: center;
-}
-
-.centered {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+/************** Specific Rules **********/
+xkcd-reader {
+    display: block;
 }
 
 /* Pure CSS loader from https://github.com/lukehaas/css-loaders */
@@ -54,7 +56,6 @@ input {
     font-size: 10px;
     margin: 80px auto;
     position: relative;
-    text-indent: -9999em;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
@@ -84,9 +85,11 @@ input {
     80%,
     100% {
         box-shadow: 0 2.5em 0 -1.3em #ffffff;
+        opacity: 0.5;
     }
     40% {
         box-shadow: 0 2.5em 0 0 #ffffff;
+        opacity: 1;
     }
 }
 
@@ -94,9 +97,11 @@ input {
     0%,
     80%,
     100% {
-        box-shadow: 0 2.5em 0 -1.3em #ffffff;
+        box-shadow: 0 2.5em 0 -1.3em #b9b9b9;
+        opacity: 0.5;
     }
     40% {
         box-shadow: 0 2.5em 0 0 #ffffff;
+        opacity: 1;
     }
 }
