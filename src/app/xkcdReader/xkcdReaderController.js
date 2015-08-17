@@ -62,6 +62,10 @@
             }
         }
 
+        function gotoFirstComic() {
+            vm.comicNum = vm.MIN_COMIC_NUM;
+        }
+
 
         //////// Keybinds ////////
         var KEY_CODES = {
@@ -84,6 +88,7 @@
         vm.gotoLatestComic = gotoLatestComic;
         vm.nextComic = nextComic;
         vm.prevComic = prevComic;
+        vm.gotoFirstComic = gotoFirstComic;
         vm.handleComicKeypress = handleComicKeypress;
     }
 }());
