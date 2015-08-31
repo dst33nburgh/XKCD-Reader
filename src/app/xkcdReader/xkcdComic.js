@@ -8,17 +8,18 @@
             scope: {
                 comicNumber: "="
             },
-            template:   "<img ng-show='!loading' class='centered-block' ng-src='{{imgHref}}' >" +
-                        "<div ng-show='loading' class='loader'></div>",
-            link: function (scope) {
+            template:   "<img xkcd-show-loader='loading' class='centered-block' ng-src='{{imgHref}}' >",
+            link: function (scope, elem) {
+                elem.children().on("load", function() {
+                    $rootScope.$apply(function() {scope.loading = false;});
+                });
+
                 $rootScope.$watch(function() { return scope.comicNumber; }, function(newVal) {
                     if (!!newVal) {
                         console.log("directive getting comic " + newVal);
                         scope.loading = true;
                         xkcdComicService.getComicAsync(newVal).then(function(comicData) {
                             scope.imgHref = comicData.img;
-                        }).finally(function() {
-                            scope.loading = false;
                         });
                     }
                 });
