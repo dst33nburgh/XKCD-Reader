@@ -39,6 +39,10 @@ xkcd-reader {
     display: block;
 }
 
+h2 {
+    margin: 1%;
+}
+
 /* Pure CSS loader from https://github.com/lukehaas/css-loaders */
 .loader:before,
 .loader:after,
