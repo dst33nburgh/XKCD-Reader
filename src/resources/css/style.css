@@ -18,6 +18,10 @@ body {
     padding: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .centered-block {
     margin-left: auto;
     margin-right: auto;
