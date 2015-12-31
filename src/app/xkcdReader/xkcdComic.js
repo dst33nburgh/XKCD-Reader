@@ -6,10 +6,11 @@
             restrict: "E",
             replace: false,
             scope: {
-                comicNumber: "="
+                comicNumber: "=",
+                comicImgClick: "&"
             },
             template:   "<h2 class='center-text'>{{title}}</h2>" +
-                        "<img xkcd-show-loader='loading' class='centered-block' title='{{alt}}' ng-src='{{imgHref}}' >",
+                        "<img ng-click='comicImgClick()' xkcd-show-loader='loading' class='centered-block' title='{{alt}}' ng-src='{{imgHref}}' >",
             link: function (scope, elem) {
                 elem.children().on("load", function() {
                     $rootScope.$apply(function() {scope.loading = false;});
