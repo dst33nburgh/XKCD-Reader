@@ -31,6 +31,14 @@ body {
     text-align: center;
 }
 
+.error-msg {
+    color: orange;
+}
+
+.warning-msg {
+    color: blue;
+}
+
 /*All images are responsive*/
 img {
     max-width: 100%;

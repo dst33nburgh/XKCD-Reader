@@ -10,4 +10,6 @@
     <button ng-click="xrc.nextComic()">Next</button>
     <button ng-click="xrc.gotoLatestComic()">Current</button>
 </div>
-<xkcd-comic comic-number="xrc.comicNum" comic-img-click="xrc.nextComic()" ng-keydown="xrc.handleComicKeypress($event)"></xkcd-comic>
+<h2 class="center-text warning-msg" ng-hide="xrc.validComicNum">Comic {{xrc.comicNum}} doesn't appear to exist</h2>
+<xkcd-comic ng-show="xrc.validComicNum" comic-number="xrc.comicNum" comic-img-click="xrc.nextComic()"
+            ng-keydown="xrc.handleComicKeypress($event)"></xkcd-comic>

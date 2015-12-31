@@ -7,10 +7,18 @@
         vm.MIN_COMIC_NUM = 1;
 
         // Keep vm.comicNum and the path in sync
-        $scope.$watch(function() { return vm.comicNum; }, function(newVal) {
-            if (!!newVal && !($location.path() === newVal) ) {
-                console.log("changing path to " + newVal);
-                $location.path(newVal);
+        $scope.$watch(function() { return vm.comicNum; }, function(newVal, oldVal) {
+            if (!newVal && newVal !== 0) {
+                return;
+            }
+
+            vm.validComicNum = newVal >= vm.MIN_COMIC_NUM && newVal <= vm.latestComicNum;
+
+            if (vm.validComicNum) {
+                if (!!newVal && !($location.path() === newVal) ) {
+                    console.log("changing path to " + newVal);
+                    $location.path(newVal);
+                }
             }
         });
 
@@ -21,7 +29,8 @@
             $scope.$on("$locationChangeSuccess", function(event, newVal) {
                 console.log("detected path change to " + newVal);
                 var comicNumString = $location.path().split("/")[1];
-                if (vm.comicNum != newVal) { // If location is out of sync with comicNum, fix it. If not, don't touch it
+                if (vm.comicNum != newVal) {
+                    // If location is out of sync with comicNum, update comicNum.
                     if (!comicNumString) {
                         gotoLatestComic();
                     } else {
@@ -47,17 +56,27 @@
         }
 
         function nextComic() {
-            if (!vm.comicNum || vm.comicNum >= vm.latestComicNum) {
+            if (!vm.comicNum && vm.comicNum !== 0) {
                 vm.comicNum = vm.MIN_COMIC_NUM;
-            } else {
+            } else if (vm.comicNum >= vm.latestComicNum) {
+                vm.comicNum = vm.MIN_COMIC_NUM;
+            } else if (vm.comicNum < vm.MIN_COMIC_NUM) {
+                vm.comicNum = vm.MIN_COMIC_NUM;
+            }
+            else {
                 vm.comicNum++;
             }
         }
 
         function prevComic() {
-            if (!vm.comicNum || vm.comicNum <= vm.MIN_COMIC_NUM) {
+            if (!vm.comicNum && vm.comicNum !== 0) {
                 vm.comicNum = vm.latestComicNum;
-            } else {
+            } else if (vm.comicNum <= vm.MIN_COMIC_NUM) {
+                vm.comicNum = vm.latestComicNum;
+            } else if (vm.comicNum > vm.latestComicNum) {
+                vm.comicNum = vm.latestComicNum;
+            }
+            else {
                 vm.comicNum--;
             }
         }
