@@ -12,13 +12,14 @@
                 return;
             }
 
-            vm.validComicNum = newVal >= vm.MIN_COMIC_NUM && newVal <= vm.latestComicNum;
+            vm.invalidComicNum = newVal < vm.MIN_COMIC_NUM || newVal > vm.latestComicNum;
+            if (vm.invalidComicNum) {
+                return;
+            }
 
-            if (vm.validComicNum) {
-                if (!!newVal && !($location.path() === newVal) ) {
-                    console.log("changing path to " + newVal);
-                    $location.path(newVal);
-                }
+            if (!!newVal && !($location.path() === newVal) ) {
+                console.log("changing path to " + newVal);
+                $location.path(newVal);
             }
         });
 
@@ -102,7 +103,6 @@
                     break;
             }
         }
-
 
         vm.gotoLatestComic = gotoLatestComic;
         vm.nextComic = nextComic;
