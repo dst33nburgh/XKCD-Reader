@@ -14,9 +14,6 @@
                 function (data) {
                     console.log("getComicAsync done for comic " + (!!comicNum ? comicNum : "latest"));
                     return data.data;
-                },
-                function (error) {
-                    console.error(error);
                 }
             );
 
