@@ -36,6 +36,10 @@
                                 // the image itself to finish loading
                             },
                             function(error) {
+                                if (error.status == 0) {
+                                    // Request was cancelled
+                                    return;
+                                }
                                 scope.imgHref = "";
                                 scope.errorMsg = "Couldn't load comic. Sorry ;(";
                                 scope.errorInfo = "Error " + error.status;
