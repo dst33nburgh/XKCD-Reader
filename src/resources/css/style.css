@@ -47,6 +47,10 @@ xkcd-reader, xkcd-comic {
     display: block;
 }
 
+xkcd-reader:focus {
+    outline: none;
+}
+
 xkcd-comic {
     position: absolute;
     width: 100%;

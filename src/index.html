@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
     <link rel="stylesheet" href="resources/css/style.css">
-    <title>XKCD Reader test page</title>
+    <title>XKCD Reader</title>
 </head>
 <body>
     <div class="centered-block loader" ng-hide="true"></div>
 
     <div class="centered-block" id="content" ng-cloak>
-        <xkcd-reader></xkcd-reader>
+        <xkcd-reader ng-keydown="xrc.handleKeydown($event)" tabindex="0"></xkcd-reader>
     </div>
 
     <script src="vendors/angular.min.js"></script>

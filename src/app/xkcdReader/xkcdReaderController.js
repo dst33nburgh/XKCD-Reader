@@ -92,21 +92,21 @@
             "right": 39
         };
 
-        function handleComicKeypress($event) {
+        function handleKeydown($event) {
             switch($event.which) {
                 case KEY_CODES["left"]:
-                    nextComic();
-                    break;
-                case KEY_CODES["right"]:
                     prevComic();
                     break;
+                case KEY_CODES["right"]:
+                    nextComic();
+                    break;
             }
-        }
+        };
 
         vm.gotoLatestComic = gotoLatestComic;
         vm.nextComic = nextComic;
         vm.prevComic = prevComic;
         vm.gotoFirstComic = gotoFirstComic;
-        vm.handleComicKeypress = handleComicKeypress;
+        vm.handleKeydown = handleKeydown;
     }
 }());
