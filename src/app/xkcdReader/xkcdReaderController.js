@@ -45,7 +45,6 @@
             console.log("updating latest comic value");
             var promise = xkcdComicService.getLatestComicAsync().then(function(comicData) {
                 console.log("update latest comic done");
-                console.log(comicData);
                 vm.latestComicNum = comicData.num;
             });
             return promise;

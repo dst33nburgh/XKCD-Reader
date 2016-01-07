@@ -11,5 +11,12 @@
     <button ng-click="xrc.gotoLatestComic()">Current</button>
 </div>
 <h2 class="center-text warning-msg" ng-show="xrc.invalidComicNum">Comic {{xrc.comicNum}} doesn't appear to exist</h2>
-<xkcd-comic ng-hide="xrc.invalidComicNum" comic-number="xrc.comicNum" comic-img-click="xrc.nextComic()"
-            ng-keydown="xrc.handleComicKeypress($event)"></xkcd-comic>
+
+<xkcd-comic ng-animate-swap="xrc.comicNum"
+            class="animated"
+            ng-class="xrc.swapDirectionClass"
+            ng-hide="xrc.invalidComicNum"
+            comic-number="xrc.comicNum"
+            comic-img-click="xrc.nextComic()"
+            ng-keydown="xrc.handleComicKeypress($event)">
+</xkcd-comic>

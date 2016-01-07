@@ -2,14 +2,13 @@
     display: none !important;
 }
 
-/*Angular directives*/
-xkcd-comic {
-    display: block;
-}
-
 /***********General rules**********/
 * {
     box-sizing: border-box;
+}
+
+h2 {
+    margin: 1%;
 }
 
 body {
@@ -43,12 +42,28 @@ img {
 }
 
 /************** Specific Rules **********/
-xkcd-reader {
+xkcd-reader, xkcd-comic {
     display: block;
 }
 
-h2 {
-    margin: 1%;
+.ng-swap-forward.ng-enter {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+}
+
+.ng-swap-forward.ng-leave {
+    -webkit-animation-name: slideOutLeft;
+    animation-name: slideOutLeft;
+}
+
+.ng-swap-backward.ng-enter {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+}
+
+.ng-swap-backward.ng-leave {
+    -webkit-animation-name: slideOutRight;
+    animation-name: slideOutRight;
 }
 
 /* Pure CSS loader from https://github.com/lukehaas/css-loaders */
