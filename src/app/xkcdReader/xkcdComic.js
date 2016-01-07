@@ -9,11 +9,7 @@
                 comicNumber: "=",
                 comicImgClick: "&"
             },
-            template:   "<h3 class='center-text error-msg' ng-show='error'>{{errorMsg}}</h3>" +
-                        "<h4 class='center-text error-msg' ng-show='error'>{{errorInfo}}</h4>" +
-                        "<h2 class='center-text' ng-show='!error && !loading'>{{title}}</h2>" +
-                        "<img ng-click='comicImgClick()' ng-show='!error && !loading' class='centered-block' title='{{alt}}' ng-src='{{imgHref}}' >" +
-                        "<div class='loader' ng-show='!error && loading'></div>",
+            templateUrl: "app/xkcdreader/XkcdComic.html",
             link: function (scope, elem) {
                 scope.error = false;
 
