@@ -88,9 +88,32 @@
             priority: 600, // we use 600 here to ensure that the directive is caught before others
             link: function(scope, $element, attrs, ctrl, $transclude) {
                 var previousElement, previousScope;
+                var SWAP_BACKWARD_CLASS = "ng-swap-backward",
+                    SWAP_FORWARD_CLASS = "ng-swap-forward";
 
-                scope.$watchCollection(attrs.ngAnimateSwap || attrs['for'], function(newVal) {
+                var addDirectionClass = function(element, newVal, oldVal) {
+                    if(!element) {
+                        return;
+                    }
+
+                    if (!newVal && newVal !== 0) {
+                        element.removeClass(SWAP_BACKWARD_CLASS);
+                        element.removeClass(SWAP_FORWARD_CLASS);
+                    }
+                    else if (newVal > oldVal) {
+                        element.removeClass(SWAP_BACKWARD_CLASS);
+                        element.addClass(SWAP_FORWARD_CLASS);
+                    }
+                    else if (newVal < oldVal) {
+                        element.removeClass(SWAP_FORWARD_CLASS);
+                        element.addClass(SWAP_BACKWARD_CLASS);
+                    }
+                };
+
+                scope.$watchCollection(attrs.ngAnimateSwap || attrs['for'], function(newVal, oldVal) {
+
                     if (previousElement) {
+                        addDirectionClass(previousElement, newVal, oldVal);
                         $animate.leave(previousElement);
                     }
                     if (previousScope) {
@@ -101,6 +124,7 @@
                         previousScope = scope.$new();
                         $transclude(previousScope, function(element) {
                             previousElement = element;
+                            addDirectionClass(element, newVal, oldVal);
                             $animate.enter(element, null, $element);
                         });
                     }
