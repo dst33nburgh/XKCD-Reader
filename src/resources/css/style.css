@@ -13,6 +13,7 @@ h2 {
 
 body {
     background-color: #d3d3d3;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
