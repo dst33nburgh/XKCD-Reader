@@ -46,6 +46,11 @@ xkcd-reader, xkcd-comic {
     display: block;
 }
 
+xkcd-comic {
+    position: absolute;
+    width: 100%;
+}
+
 .ng-swap-forward.ng-enter {
     -webkit-animation-name: slideInRight;
     animation-name: slideInRight;
