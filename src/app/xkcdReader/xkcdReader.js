@@ -4,7 +4,7 @@
     function xkcdReader() {
         return {
             restrict: "E",
-            templateUrl: "app/xkcdreader/XkcdReader.html",
+            templateUrl: "app/xkcdReader/XkcdReader.html",
             controller: "xkcdReaderController as xrc"
         }
     }

@@ -9,7 +9,7 @@
                 comicNumber: "=",
                 comicImgClick: "&"
             },
-            templateUrl: "app/xkcdreader/XkcdComic.html",
+            templateUrl: "app/xkcdReader/XkcdComic.html",
             link: function (scope, elem) {
                 scope.error = false;
 
